@@ -10,10 +10,12 @@
         "start:client": "npm start -w client",
         "start:prod": "npm run prod -w server",
         "prestart:prod": "npm ci && npm run build",
-        "dev": "npm run dev -w client & npm run dev -w server",
         "build": "npm run build -w client",
+        "build:package": "tar -czf dist.tar.gz client node_modules server LICENSE package-lock.json package.json",
+        "dist": "npm run build:package",
         "predeploy": "npm run predeploy -w client",
-        "deploy": "npm run deploy -w client"
+        "deploy": "npm run deploy -w client",
+        "predist": "npm ci && npm run build"
     },
     "repository": {
         "type": "git",
